@@ -3,10 +3,10 @@ package ar.edu.uno.prog1.genetico.modelo;
 public class Clave {
 	
 	private static Clave clave; 
-	private CromosomaTP cromosomaTP;
+	private Cromosoma cromosomaTP;
 	
 	private Clave(String representacionHexadecimal) {
-		this.setCromosomaTP(new CromosomaTP(representacionHexadecimal, 0));
+		this.setCromosoma(new Cromosoma(representacionHexadecimal, 0));
 	}
 	
 	public static Clave getClave() {
@@ -17,12 +17,12 @@ public class Clave {
 		Clave.clave = new Clave(representacionHexadecimal);;
 	}
 
-	public CromosomaTP getCromosomaTP() {
+	public Cromosoma getCromosoma() {
 		return cromosomaTP;
 	}
 
-	public void setCromosomaTP(CromosomaTP cromosomaTP) {
-		this.cromosomaTP = cromosomaTP;
+	public void setCromosoma(Cromosoma cromosoma) {
+		this.cromosomaTP = cromosoma;
 	}
 	
 	
