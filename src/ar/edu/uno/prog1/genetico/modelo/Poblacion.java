@@ -41,6 +41,7 @@ public class Poblacion {
 		return c;
 	}
 	
+	
 public void cargarPoblacion (String nombreArchivo) {
 		
 		FileReader fileReader = null;
@@ -70,10 +71,35 @@ public void cargarPoblacion (String nombreArchivo) {
 		
 		System.out.println(this.getCantidadCromosomas());
 		
+
+		//System.out.println(poblacion.mutar());
+	}
+
+	public void mostrarPoblacion () {
+		
 		for (Cromosoma c : this.poblacion)
 			
 			System.out.println(c);
-		//System.out.println(poblacion.mutar());
+			System.out.printf("\n\n");
 	}
 	
+	public void mutarPoblacion () {
+		
+		for (int i = 0; i < this.poblacion.size(); i++)
+		this.getPoblacion().get(i).mutarCromosoma();
+	}
+	
+	public void seleccionPoblacion () {
+		
+		ArrayList<Cromosoma> poblacionTemporal = new ArrayList<Cromosoma>();
+		
+		for (int i = 0; i < this.poblacion.size(); i++) {
+		Integer aleatorio1 = (int) ((Math.random() * 10) % 10);
+		Integer aleatorio2 = (int) ((Math.random() * 10) % 10);
+		
+		poblacionTemporal.add(Cromosoma.seleccion(this.poblacion.get(aleatorio1), this.poblacion.get(aleatorio2)));
+		}
+		
+		this.poblacion = poblacionTemporal;
+	}
 }

@@ -30,7 +30,16 @@ public class Cromosoma {
 	}
 	
 	private String getConvertirBinarioAHexadecimal() {
-		return Long.toHexString(Long.parseLong(this.getRepresentacionGenesBinaria(), 2)).toUpperCase();
+		
+		String temp;
+		temp = Long.toHexString(Long.parseLong(this.getRepresentacionGenesBinaria(), 2)).toUpperCase();
+		
+		for (int i = temp.length(); i < 10; i++ )
+			
+			temp = "0" + temp;
+		
+		return temp;
+		
 	}
 	
 	private Integer calcularFitness() {
@@ -86,11 +95,11 @@ public class Cromosoma {
 	}
 	
 	
-	public void mutar() {
+	public void mutarCromosoma() {
 		char [] genes = this.getRepresentacionGenesBinaria().toCharArray();
 		for (Integer i=1; i<=4; i++) {
-			Integer aleatorio = (int) ((Math.random() * 10) % this.getRepresentacionGenesBinaria().length());
-			System.out.println(aleatorio);
+			Integer aleatorio = (int) ((Math.random() * 40) % this.getRepresentacionGenesBinaria().length());
+			// System.out.println(aleatorio);
 			genes[aleatorio] = (genes[aleatorio] == '1')?'0':'1';
 		}
 		this.setRepresentacionGenesBinaria(new String(genes));
@@ -102,6 +111,16 @@ public class Cromosoma {
 		return new Cromosoma[]{null, null};
 	}
 	
+	public static Cromosoma seleccion (Cromosoma cromosoma1, Cromosoma cromosoma2) {
+		
+		if (cromosoma1.calcularFitness() >= cromosoma2.calcularFitness())
+		
+			return cromosoma1;
+					
+			else return cromosoma2;
+
+		
+	}
 	
 
 }
