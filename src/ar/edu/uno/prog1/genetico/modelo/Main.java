@@ -4,9 +4,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Clave.setClave("1AC7D9B273");
 		
-		Poblacion poblacion = new Poblacion ();
+		Poblacion poblacion = new Poblacion ("poblacion.in", "1AC7D9B273");
+		
+		poblacion.iniciar();
 		
 		//Cromosoma cromosoma1 = new Cromosoma("FD47DD66B4");
 		//Cromosoma cromosoma2 = new Cromosoma("FA");
@@ -17,15 +18,20 @@ public class Main {
 		//cromosoma2.mutar();
 		//System.out.println(cromosoma2);
 		
-		poblacion.cargarPoblacion("poblacion.in");
-		poblacion.mostrarPoblacion();
-
+//		poblacion.cargarPoblacion("poblacion.in");
+//		poblacion.mostrarPoblacion();
+//
+//		
+//		poblacion.seleccionPoblacion();
+//		poblacion.mostrarPoblacion();
+//		
+//		poblacion.mutarPoblacion();
+//		poblacion.mostrarPoblacion();
 		
-		poblacion.seleccionPoblacion();
-		poblacion.mostrarPoblacion();
+//		Cromosoma clave = new Cromosoma("1AC7D9B273");
+//		Cromosoma cromosoma = new Cromosoma("1AC7D9B103");
+//		System.out.println(cromosoma.calcularFitness(clave));
 		
-		poblacion.mutarPoblacion();
-		poblacion.mostrarPoblacion();
 	}
 
 }

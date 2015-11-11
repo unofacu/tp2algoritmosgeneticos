@@ -6,7 +6,7 @@ public class Clave {
 	private Cromosoma cromosomaTP;
 	
 	private Clave(String representacionHexadecimal) {
-		this.setCromosoma(new Cromosoma(representacionHexadecimal, 0));
+		//this.setCromosoma(new Cromosoma(representacionHexadecimal, 0));
 	}
 	
 	public static Clave getClave() {
