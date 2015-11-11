@@ -100,21 +100,24 @@ public class Poblacion {
 		
 	}
 
-//	public void seleccionPoblacion() {
-//
-//		ArrayList<Cromosoma> poblacionTemporal = new ArrayList<Cromosoma>();
-//
-//		for (int i = 0; i < this.poblacion.size(); i++) {
-//			Integer aleatorio1 = (int) ((Math.random() * 10) % 10);
-//			Integer aleatorio2 = (int) ((Math.random() * 10) % 10);
-//
-//			poblacionTemporal.add(Cromosoma.seleccion(
-//					this.poblacion.get(aleatorio1),
-//					this.poblacion.get(aleatorio2)));
-//		}
-//
-//		this.poblacion = poblacionTemporal;
-//	}
+	public void seleccion() {
+
+		ArrayList<Cromosoma> poblacionTemporal = new ArrayList<Cromosoma>();
+
+		for (int i = 0; i < this.poblacion.size(); i++) {
+			
+			Integer aleatorio1 = (int) ((Math.random() * 10) % 10);
+			Integer aleatorio2 = (int) ((Math.random() * 10) % 10);
+
+			if (this.poblacion.get(aleatorio1).calcularFitness(clave) >= this.poblacion.get(aleatorio2).calcularFitness(clave))
+				
+				poblacionTemporal.add(this.poblacion.get(aleatorio1));
+			
+			else poblacionTemporal.add(this.poblacion.get(aleatorio2));
+		}
+
+		this.poblacion = poblacionTemporal;
+}
 	
 	public void reproducir() {
 	
@@ -179,6 +182,8 @@ public class Poblacion {
 			
 			cantIter++;
 			if (!(encontreSolucion = this.evaluarPoblacion())) {
+				
+				this.seleccion();
 				this.reproducir();
 				this.mutarPoblacion();
 			}
