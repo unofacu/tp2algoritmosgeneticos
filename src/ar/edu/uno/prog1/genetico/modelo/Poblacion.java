@@ -106,8 +106,8 @@ public class Poblacion {
 
 		for (int i = 0; i < this.poblacion.size(); i++) {
 			
-			Integer aleatorio1 = (int) ((Math.random() * 10) % 10);
-			Integer aleatorio2 = (int) ((Math.random() * 10) % 10);
+			Integer aleatorio1 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion.size());
+			Integer aleatorio2 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion.size());
 
 			if (this.poblacion.get(aleatorio1).calcularFitness(clave) >= this.poblacion.get(aleatorio2).calcularFitness(clave))
 				
