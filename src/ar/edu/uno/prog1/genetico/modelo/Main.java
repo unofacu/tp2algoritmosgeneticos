@@ -9,29 +9,6 @@ public class Main {
 		
 		poblacion.iniciar();
 		
-		//Cromosoma cromosoma1 = new Cromosoma("FD47DD66B4");
-		//Cromosoma cromosoma2 = new Cromosoma("FA");
-		//System.out.println(cromosoma1);
-		//System.out.println(cromosoma2);
-		//cromosoma1.mutar();
-		//System.out.println(cromosoma1);
-		//cromosoma2.mutar();
-		//System.out.println(cromosoma2);
-		
-//		poblacion.cargarPoblacion("poblacion.in");
-//		poblacion.mostrarPoblacion();
-//
-//		
-//		poblacion.seleccionPoblacion();
-//		poblacion.mostrarPoblacion();
-//		
-//		poblacion.mutarPoblacion();
-//		poblacion.mostrarPoblacion();
-		
-//		Cromosoma clave = new Cromosoma("1AC7D9B273");
-//		Cromosoma cromosoma = new Cromosoma("1AC7D9B103");
-//		System.out.println(cromosoma.calcularFitness(clave));
-		
 	}
 
 }
