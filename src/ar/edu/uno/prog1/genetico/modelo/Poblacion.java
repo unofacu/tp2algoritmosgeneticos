@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.text.StyledEditorKit.AlignmentAction;
 
 public class Poblacion {
 
@@ -75,7 +78,7 @@ public class Poblacion {
 
 		for (Cromosoma c : this.poblacion)
 
-			System.out.println(c);
+			System.out.println(c.getRepresentacionGenesHexadecimal());
 		System.out.printf("\n\n");
 	}
 
@@ -88,19 +91,25 @@ public class Poblacion {
 	public void seleccion() {
 
 		ArrayList<Cromosoma> poblacionTemporal = new ArrayList<Cromosoma>();
+		
+		int aleatorio1 = 0;
+		int aleatorio2 = 0;
+		poblacionTemporal = this.poblacion;
 
 		for (int i = 0; i < this.poblacion.size(); i++) {
 
-			Integer aleatorio1 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion
+			while (aleatorio1 == aleatorio2) {
+			aleatorio1 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion
 					.size());
-			Integer aleatorio2 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion
+			aleatorio2 = (int) ((Math.random() * this.poblacion.size()) % this.poblacion
 					.size());
-
+			}
+			
 			if (this.poblacion.get(aleatorio1).calcularFitness(clave) >= this.poblacion
 					.get(aleatorio2).calcularFitness(clave))
-				poblacionTemporal.add(this.poblacion.get(aleatorio1));
+				poblacionTemporal.set(aleatorio2, this.poblacion.get(aleatorio1));
 			else
-				poblacionTemporal.add(this.poblacion.get(aleatorio2));
+				poblacionTemporal.set(aleatorio1, this.poblacion.get(aleatorio2));
 		}
 
 		this.poblacion = poblacionTemporal;
@@ -148,7 +157,7 @@ public class Poblacion {
 		}
 
 		this.poblacion = temporal;
-
+		
 	}
 
 	public boolean evaluarPoblacion() {
@@ -182,6 +191,7 @@ public class Poblacion {
 				this.seleccion();
 				this.reproducir();
 				this.mutarPoblacion();
+				
 				
 			}
 

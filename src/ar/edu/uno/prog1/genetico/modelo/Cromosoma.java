@@ -86,7 +86,7 @@ public class Cromosoma {
 	public void mutar() {
 		char[] genes = this.getRepresentacionGenesBinaria().toCharArray();
 		for (Integer i = 1; i <= 4; i++) {
-			Integer aleatorio = (int) (Math.random() * 40);
+			Integer aleatorio = (int) (Math.random() * this.representacionGenesBinaria.length());
 			genes[aleatorio] = (genes[aleatorio] == '1') ? '0' : '1';
 		}
 		this.setRepresentacionGenesBinaria(new String(genes));
@@ -105,7 +105,7 @@ public class Cromosoma {
 		Cromosoma hijo2 = new Cromosoma(
 				pareja.getRepresentacionGenesHexadecimal());
 
-		int gen = (int) (Math.random() * 40);
+		int gen = (int) (Math.random() * 39);
 
 		char[] genes1 = hijo1.getRepresentacionGenesBinaria().toCharArray();
 		char[] genes2 = hijo2.getRepresentacionGenesBinaria().toCharArray();
